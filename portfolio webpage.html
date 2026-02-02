@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<body>
+    <header>
+    <h1>My Portfolio</h1>
+    <h2>Niti N Makam</h2>
+    <p>Information Science Student | Intern at Adversity Solution</p>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <hr>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <figure>
+                <img src="photo niti.jpg" alt="Student profile photo" width="150" height="165">
+                <figcaption>Niti N Makam</figcaption>
+            </figure>
+
+        <p>Hello!<br>I am an Information Science and Engineering student at RNS Institute of Technology with a strong enthusiasm for learning and applying emerging technologies. Passionate about Artificial Intelligence, Machine Learning and Software Development. Flexible and confident to work effectively both independently and collaboratively in team environments. Eager to contribute significant impacts with innovation and new technological solutions</p>
+        </section>
+
+        <hr>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Web Development: </strong>HTML, CSS, Java script (basics) for a responsive web application</li>
+                <li><strong>Programming Languages: </strong>C, Java and Python fundamentals</li>
+                <li><strong>Backend & Database: </strong>MongoDB, Firebase, Streamlit</li>
+                <li><strong>Development Tools: </strong>Visual Sudio Code, Postman(API testing)</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="projects">
+                <h2>My Projects</h2>
+
+                <article>
+                    <header>
+                        <h3>1.AI-Powered Study Assistant</h3>
+                    </header>
+
+                    <p>Created an <strong>AI Study Assistant</strong> web application via Streamlit enabling authorized students to upload study materials(PDF, DOCX, TXT) and interact with a Google Gemini-powered chatbot.</p>
+                    <details>
+                        <summary>
+                            Technical Details & Features
+                        </summary>
+                        <ul>
+                            <li>Responsive UI with session retention</li>
+                            <li>Automated summary generation</li>
+                            <li>Flash card & MCQ quizz generation</li>
+                            <li>Context-aware responses</li>
+                        </ul>
+                    </details>
+                </article>
+
+                <br>
+
+                <article>
+                    <header>
+                        <h3>2.Women's Health & Cycle Helper</h3>
+                    </header>
+                    
+                    <p>Developed a client-side application for tracking menstrual cycles and women’s health information.</p>
+                    <details>
+                        <summary>Technical Details & Features</summary>
+                        <ul>
+                            <li>Dynamic log entry with deletion capabilities</li>
+                            <li>Calendar interface with date highlighting</li>
+                            <li>Symptom-based recommendations</li>
+                        </ul>
+                    </details>
+                </article>
+                <br>
+        </section>
+
+        <hr>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>I am open to internship opportunities, collaborative projects, learning-based roles.<br>I would be happy to connect and dicuss.<br>Willing to learn new technologies and adapt to the evolving development environments.</p>
+            
+            <address>
+                <strong>Email: </strong><a href="mailto:niti@gmail.com">niti@gmail.com</a><br>
+                <strong>GitHub: </strong><a href="" target="_blank" rel="noopener noreferrer">github.com/niti-code</a><br>
+                <strong>Location: </strong>Bengaluru, India
+            </address>
+
+            <article>
+                <h4>Send a Message</h4>
+                <form action="#" method="post" aria-label="Contact form">
+                    <fieldset>
+                        <legend>Inquiry Details</legend>
+
+                        <p>
+                            <label for="name">Full Name: <abbr title="required" aria label="required">*</abbr></label><br>
+                            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your Name">
+                        </p>
+
+                        <p>
+                            <label for="email">Email Address: <abbr title="required" aria label="required"></abbr>*</abbr></label><br>
+                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="your.email@example.com">
+                        </p>
+
+                        <p>
+                            <label for="subject">Subject:</label><br>
+                            <select id="subject" name="subject" required>
+                                <option value="">--Select a topic--</option>
+                                <option value="internship">Internship Opportunity</option>
+                                <option value="collaboration">Project Collaboration</option>
+                                <option value="learning">Learning/ Mentorship</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="message">Message:* </label><br>
+                            <textarea id="message" name="message" rows="5" cols="50" required placeholder="Topic of discussion?" minlength="10" maxlength="50"></textarea>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="concent" required>
+                            <label for="consent">I agree to be contacted regarding this inquiry</label>
+                        </p>
+                        
+                        <p>
+                            <button type="submit">Send Message</button>
+                            <button type="reset">Clear Form</button>
+                        </p>
+                    </fieldset>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p><small>&copy Niti N Makam portfolio</small></p>
+        <p><a href="#">Back to top</a></p>
+    </footer>
+</body>
+</html>
