@@ -41,14 +41,49 @@
         <hr>
         
         <section id="skills">
-            <h2>Technical Skills</h2>
-            <ul class="skillList">
-                <li><strong>Web Development: </strong>HTML, CSS, Java script (basics) for a responsive web application</li>
-                <li><strong>Programming Languages: </strong>C, Java and Python fundamentals</li>
-                <li><strong>Backend & Database: </strong>MongoDB, Firebase, Streamlit</li>
-                <li><strong>Development Tools: </strong>Visual Sudio Code, Postman(API testing)</li>
-            </ul>
-        </section>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        
+        <div class="skill-category">
+            <h3>Web Development</h3>
+            <div class="skill-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Responsive Design</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-tags">
+                <span class="tag">C</span>
+                <span class="tag">Java</span>
+                <span class="tag">Python</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Backend & Database</h3>
+            <div class="skill-tags">
+                <span class="tag">MongoDB</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Streamlit</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Development Tools</h3>
+            <div class="skill-tags">
+                <span class="tag">VS Code</span>
+                <span class="tag">Postman</span>
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <hr>
 
@@ -151,6 +186,45 @@
             </article>
         </section>
     </main>
+
+    <script>
+    // Scroll Reveal Animation with Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100); // Stagger effect
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.boxShadow = '0 2px 20px rgba(107, 125, 106, 0.08)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+</script>
 
     <footer>
         <hr>
