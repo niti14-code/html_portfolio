@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio | Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <h1>My Portfolio</h1>
+    <h2>Niti N Makam</h2>
+    <p>Information Science Student | Intern at Adversity Solution</p>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" class="active">Contact</a></li>
+        </ul>
+    </nav>
+    <hr>
+    </header>
+    <main>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>I am open to internship opportunities, collaborative projects, learning-based roles.<br>I would be happy to connect and dicuss.<br>Willing to learn new technologies and adapt to the evolving development environments.</p>
+            
+            <address>
+                <strong>Email: </strong><a href="mailto:niti@gmail.com">niti@gmail.com</a><br>
+                <strong>GitHub: </strong><a href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com/niti-code</a><br>
+                <strong>Location: </strong>Bengaluru, India
+            </address>
+
+            <article>
+                <h4>Send a Message</h4>
+                <form action="#" method="post" aria-label="Contact form">
+                    <fieldset>
+                        <legend>Inquiry Details</legend>
+
+                        <p>
+                            <label for="name">Full Name: <abbr title="required" aria label="required">*</abbr></label><br>
+                            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your Name">
+                        </p>
+
+                        <p>
+                            <label for="email">Email Address: <abbr title="required" aria label="required"></abbr>*</abbr></label><br>
+                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="your.email@example.com">
+                        </p>
+
+                        <p>
+                            <label for="subject">Subject:</label><br>
+                            <select id="subject" name="subject" required>
+                                <option value="">--Select a topic--</option>
+                                <option value="internship">Internship Opportunity</option>
+                                <option value="collaboration">Project Collaboration</option>
+                                <option value="learning">Learning/ Mentorship</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="message">Message:* </label><br>
+                            <textarea id="message" name="message" rows="5" cols="50" required placeholder="Topic of discussion?" minlength="10" maxlength="50"></textarea>
+                        </p>
+
+                        <p>
+                            <input type="checkbox" name="concent" required>
+                            <label for="consent">I agree to be contacted regarding this inquiry</label>
+                        </p>
+                        
+                        <p>
+                            <button type="submit">Send Message</button>
+                            <button type="reset">Clear Form</button>
+                        </p>
+                    </fieldset>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p><small>&copy Niti N Makam portfolio</small></p>
+        <p><a href="#">Back to top</a></p>
+    </footer>
+    </body>

@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
 </head>
 <body>
     <header>
-    <h1>My Portfolio</h1>
-    <h2>Niti N Makam</h2>
+    <div class="nav">
+    <h1>Niti N Makam</h1>
     <p>Information Science Student | Intern at Adversity Solution</p>
 
     <nav>
@@ -19,25 +21,28 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    <hr>
+    </div>
     </header>
 
     <main>
         <section id="about">
             <h2>About Me</h2>
+            <div class="profile">
             <figure>
                 <img src="photo niti.jpg" alt="Student profile photo" width="150" height="165">
                 <figcaption>Niti N Makam</figcaption>
             </figure>
 
         <p>Hello!<br>I am an Information Science and Engineering student at RNS Institute of Technology with a strong enthusiasm for learning and applying emerging technologies. Passionate about Artificial Intelligence, Machine Learning and Software Development. Flexible and confident to work effectively both independently and collaboratively in team environments. Eager to contribute significant impacts with innovation and new technological solutions</p>
+        </div>
         </section>
 
+    
         <hr>
-
+        
         <section id="skills">
             <h2>Technical Skills</h2>
-            <ul>
+            <ul class="skillList">
                 <li><strong>Web Development: </strong>HTML, CSS, Java script (basics) for a responsive web application</li>
                 <li><strong>Programming Languages: </strong>C, Java and Python fundamentals</li>
                 <li><strong>Backend & Database: </strong>MongoDB, Firebase, Streamlit</li>
@@ -96,7 +101,7 @@
             
             <address>
                 <strong>Email: </strong><a href="mailto:niti@gmail.com">niti@gmail.com</a><br>
-                <strong>GitHub: </strong><a href="" target="_blank" rel="noopener noreferrer">github.com/niti-code</a><br>
+                <strong>GitHub: </strong><a href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com/niti-code</a><br>
                 <strong>Location: </strong>Bengaluru, India
             </address>
 
@@ -112,8 +117,8 @@
                         </p>
 
                         <p>
-                            <label for="email">Email Address: <abbr title="required" aria label="required"></abbr>*</abbr></label><br>
-                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="your.email@example.com">
+                            <label for="email">Email Address: <abbr title="required" aria label="required">*</abbr></label><br>
+                            <input type="text" id="email" name="email" required autocomplete="email" placeholder="your.email@example.com">
                         </p>
 
                         <p>
@@ -133,7 +138,7 @@
                         </p>
 
                         <p>
-                            <input type="checkbox" name="concent" required>
+                            <input type="checkbox" id="consent" name="consent" required>
                             <label for="consent">I agree to be contacted regarding this inquiry</label>
                         </p>
                         
