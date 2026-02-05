@@ -29,6 +29,7 @@ function initThemeToggle() {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         updateToggleState(isDark);
         createRipple(toggleBtn);
+        
     });
     
     // Listen for system theme changes
@@ -39,6 +40,7 @@ function initThemeToggle() {
             updateToggleState(isDark);
         }
     });
+
 }
 
 function updateToggleState(isDark) {
@@ -49,10 +51,6 @@ function updateToggleState(isDark) {
         text.textContent = isDark ? 'Light' : 'Dark';
     }
     
-    // Force background update by triggering a reflow
-    body.style.display = 'none';
-    body.offsetHeight; // Trigger reflow
-    body.style.display = '';
 }
 
 function createRipple(button) {
