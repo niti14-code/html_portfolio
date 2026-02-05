@@ -87,9 +87,3 @@ GitHub: @niti-code
 Location: India
 
 
-| **Styling** | CSS Custom Properties, Flexbox, CSS Grid |
-| **Animations** | CSS Keyframes |
-| **Form Handling** | Formspree |
-| **Deployment** | GitHub Pages |
-
-
