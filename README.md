@@ -69,7 +69,7 @@ Location: India
 
 ## 🚀 Live Demo
 
-**[View Live Site →](https://yourusername.github.io/portfolio)**
+**[View Live Site →]( https://niti14-code.github.io/html_portfolio/)**
 
 ---
 
