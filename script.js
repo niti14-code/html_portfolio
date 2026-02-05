@@ -1,36 +1,33 @@
+/*JAVA SCRIPT FILE FOR THE PORTFOLIO*/
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all functionality
     initThemeToggle();
     initScrollReveal();
     initSmoothScroll();
     initHeaderScroll();
+    initTypingEffect();
+    updateCopyrightYear();
+    initContactForm();
 });
-
+// 1. THEME TOGGLE
 function initThemeToggle() {
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     
-    // Check system preference or saved preference
+    // Check for saved theme preference or default to 'light'
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Apply initial theme
+    // Apply dark mode if saved or system prefers it
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
         body.classList.add('dark-mode');
         updateToggleState(true);
     }
     
-    // Toggle handler
+    // Toggle button click handler
     toggleBtn.addEventListener('click', () => {
         const isDark = body.classList.toggle('dark-mode');
-        
-        // Save preference
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
-        // Update button appearance
         updateToggleState(isDark);
-        
-        // Trigger ripple effect
         createRipple(toggleBtn);
     });
     
@@ -46,7 +43,16 @@ function initThemeToggle() {
 
 function updateToggleState(isDark) {
     const text = document.querySelector('.toggle-text');
-    text.textContent = isDark ? 'Light' : 'Dark';
+    const body = document.body;
+    
+    if (text) {
+        text.textContent = isDark ? 'Light' : 'Dark';
+    }
+    
+    // Force background update by triggering a reflow
+    body.style.display = 'none';
+    body.offsetHeight; // Trigger reflow
+    body.style.display = '';
 }
 
 function createRipple(button) {
@@ -58,56 +64,48 @@ function createRipple(button) {
         transform: scale(0);
         animation: ripple 0.6s linear;
         pointer-events: none;
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
     `;
-    
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    ripple.style.width = ripple.style.height = size + 'px';
-    ripple.style.left = (rect.width / 2 - size / 2) + 'px';
-    ripple.style.top = (rect.height / 2 - size / 2) + 'px';
     
     button.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
 }
 
-// Add ripple animation to styles dynamically
+// Add ripple keyframes dynamically
 const style = document.createElement('style');
 style.textContent = `
     @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
+        to { transform: scale(4); opacity: 0; }
     }
 `;
 document.head.appendChild(style);
-
+// 2. SCROLL REVEAL
 function initScrollReveal() {
     const sections = document.querySelectorAll('section');
-    
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Staggered animation delay
                 setTimeout(() => {
                     entry.target.classList.add('visible');
                 }, index * 100);
-                
-                // Stop observing once revealed
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    });
     
     sections.forEach(section => observer.observe(section));
 }
-
+// 3. SMOOTH SCROLL
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -123,6 +121,7 @@ function initSmoothScroll() {
     });
 }
 
+// 4. HEADER SCROLL EFFECT
 function initHeaderScroll() {
     const header = document.querySelector('header');
     let ticking = false;
@@ -131,24 +130,84 @@ function initHeaderScroll() {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const scrolled = window.pageYOffset > 50;
-                header.style.boxShadow = scrolled 
-                    ? '0 8px 40px rgba(0,0,0,0.15)' 
-                    : '0 4px 30px rgba(0,0,0,0.05)';
+                if (header) {
+                    header.style.boxShadow = scrolled 
+                        ? '0 8px 40px rgba(0,0,0,0.2)' 
+                        : 'var(--glass-shadow)';
+                }
                 ticking = false;
             });
             ticking = true;
         }
     });
 }
+// 5. TYPING EFFECT FOR BRAND TAGLINE
+function initTypingEffect() {
+    const roles = [
+        "Information Science Engineering Student",
+        "Intern at Adversity Solution", 
+    ];
+    
+    const element = document.querySelector('.brand p');
+    if (!element) return;
+    
+    // Clear initial text
+    element.textContent = '';
+    
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    
+    function type() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            element.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            element.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100;
+        }
+        
+        // Cursor effect
+        element.style.borderRight = '2px solid var(--accent)';
+        
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            typingSpeed = 2000;
+            element.style.borderRight = 'none';
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typingSpeed = 500;
+        }
+        
+        setTimeout(type, typingSpeed);
+    }
+    
+    type();
+}
+// 6. COPYRIGHT YEAR
+function updateCopyrightYear() {
+    const footerSmall = document.querySelector('footer small');
+    if (footerSmall) {
+        footerSmall.innerHTML = `&copy; ${new Date().getFullYear()} Niti N Makam portfolio`;
+    }
+}
 
-
-console.log('%c🌟 Niti\'s Portfolio', 'font-size: 24px; font-weight: bold; color: #6B7D6A;');
-console.log('%cBuilt with vanilla JavaScript & CSS', 'font-size: 12px; color: #5F6F64;');
-console.log('%cTry pressing "T" to toggle theme!', 'font-size: 12px; color: #A1BC98;');
-
+// KEYBOARD SHORTCUT
 document.addEventListener('keydown', (e) => {
     if ((e.key === 't' || e.key === 'T') && 
         !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-        document.getElementById('theme-toggle').click();
+        const toggle = document.getElementById('theme-toggle');
+        if (toggle) toggle.click();
     }
 });
+
+// Console greeting
+console.log('%c🌿 Niti\'s Portfolio', 'font-size: 20px; font-weight: bold; color: #6B7D6A;');
+console.log('%cLiquid Glass Edition', 'font-size: 12px; color: #9AB89A;');
+

@@ -8,10 +8,37 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
 </head>
 <body>
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-    <div class="shape shape-4"></div>
+    <!-- Animated Background Shapes -->
+    <div class="bg-shapes">
+        <!-- Large glowing orbs -->
+        <div class="shape-orb orb-1"></div>
+        <div class="shape-orb orb-2"></div>
+        <div class="shape-orb orb-3"></div>
+        
+        <!-- Geometric triangles -->
+        <div class="shape-geo geo-triangle triangle-1"></div>
+        <div class="shape-geo geo-triangle triangle-2"></div>
+        
+        <!-- Circle outlines -->
+        <div class="shape-geo geo-circle circle-1"></div>
+        <div class="shape-geo geo-circle circle-2"></div>
+        
+        <!-- Small floating dots -->
+        <div class="shape-geo geo-dot dot-1"></div>
+        <div class="shape-geo geo-dot dot-2"></div>
+        <div class="shape-geo geo-dot dot-3"></div>
+        <div class="shape-geo geo-dot dot-4"></div>
+        
+        <!-- Ring shapes -->
+        <div class="shape-geo geo-ring ring-1"></div>
+        <div class="shape-geo geo-ring ring-2"></div>
+        
+        <!-- Connection lines -->
+        <div class="shape-lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+        </div>
+    </div>
     
     <button id="theme-toggle" class="theme-float" aria-label="Toggle theme">
         <span class="toggle-icon">
@@ -31,6 +58,7 @@
                 <ul>
                     <li><a href="#about">About Me</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -51,7 +79,6 @@
         </div>
         </section>
 
-    
         <hr>
         
         <section id="skills">
@@ -98,6 +125,39 @@
 
     </div>
 </section>
+
+        <hr>
+        
+         <section id="education">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                
+                <div class="edu-card">
+                    <h3>Bachelor of Engineering (BE)</h3>
+                    <div class="edu-year">2027 - Present</div>
+                    <p class="edu-institution">RNS Institute of Technology</p>
+                    <p class="edu-detail">Information Science and Engineering</p>
+                    <span class="edu-status ongoing">Ongoing</span>
+                </div>
+
+                <div class="edu-card">
+                    <h3>Pre-University Education</h3>
+                    <div class="edu-year">2023</div>
+                    <p class="edu-institution">RVPU College</p>
+                    <p class="edu-detail">PCMB (Physics, Chemistry, Mathematics, Biology)</p>
+                    <span class="edu-status completed">Completed</span>
+                </div>
+
+                <div class="edu-card">
+                    <h3>School</h3>
+                    <div class="edu-year">2021</div>
+                    <p class="edu-institution">Little Flower Public School</p>
+                    <p class="edu-detail">Class 10th - CISCE</p>
+                    <span class="edu-status completed">Completed</span>
+                </div>
+
+            </div>
+        </section>
 
         <hr>
 
@@ -201,44 +261,6 @@
         </section>
     </main>
     <script src="script.js"></script>
-    <script>
-    // Scroll Reveal Animation with Intersection Observer
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 100); // Stagger effect
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
-    
-    // Header scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 2px 20px rgba(107, 125, 106, 0.08)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-</script>
 
     <footer>
         <hr>
