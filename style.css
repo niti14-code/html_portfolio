@@ -1111,3 +1111,75 @@ footer::before {
     animation: blink 1s infinite;
 }
 
+/* Contact Form - Minimal & Clean */
+#contact {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+#contact > p, #contact > address {
+    grid-column: 1;
+}
+
+#contact form {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contact input, #contact select, #contact textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: var(--glass-highlight);
+    color: var(--text-body);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+#contact input:focus, #contact select:focus, #contact textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+#contact button {
+    padding: 0.9rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#contact button:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+#contact button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#form-status {
+    margin: 0;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+#form-status.success { color: #27ae60; }
+#form-status.error { color: #e74c3c; }
+
+@media (max-width: 900px) {
+    #contact { grid-template-columns: 1fr; }
+    #contact form { grid-column: 1; grid-row: auto; }
+}

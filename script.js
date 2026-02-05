@@ -211,3 +211,41 @@ document.addEventListener('keydown', (e) => {
 console.log('%c🌿 Niti\'s Portfolio', 'font-size: 20px; font-weight: bold; color: #6B7D6A;');
 console.log('%cLiquid Glass Edition', 'font-size: 12px; color: #9AB89A;');
 
+// Contact Form - Minimal & Effective
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+    
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        status.textContent = '';
+        status.className = '';
+
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+                status.textContent = 'Message sent! I\'ll reply soon.';
+                status.className = 'success';
+                form.reset();
+            } else {
+                throw new Error('Failed');
+            }
+        } catch {
+            status.textContent = 'Failed to send. Please email me directly.';
+            status.className = 'error';
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+        }
+    });
+}
